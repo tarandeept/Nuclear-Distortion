@@ -14,8 +14,45 @@
 #include "PluginProcessor.h"
 
 //==============================================================================
-/**
-*/
+
+class OtherLookAndFeel : public LookAndFeel_V4
+{
+public:
+    OtherLookAndFeel() {
+        setColour(Slider::thumbColourId, Colours::red);
+    }
+    
+    
+    void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
+                       const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override
+    {
+        float radius = jmin(width/2, height/2) - 4.0f;
+        float centreX = width/2 + x;
+        float centreY = height/2 + y;
+        float rx = centreX - radius;
+        float ry = centreY - radius;
+        float rw = radius * 2.0f;
+        float angle = rotaryStartAngle + sliderPos * (rotaryEndAngle - rotaryStartAngle);
+        
+        g.setColour(Colours::mintcream);
+        g.fillEllipse(rx, ry, rw, rw);
+        g.setColour(Colours::darkgrey);
+        g.drawEllipse(rx, ry, rw, rw, 1.0f);
+        
+        Path p;
+        float pointerLength = radius/2;
+        float pointerThickness = 3.0f;
+        p.addRectangle(-pointerThickness/2, -radius, pointerThickness, pointerLength);
+        p.applyTransform(AffineTransform::rotation(angle).translated(centreX, centreY));
+        
+        g.setColour(Colours::black);
+        g.fillPath(p);
+    }
+    
+};
+
+
+
 class NuclearDistortionAudioProcessorEditor  : public AudioProcessorEditor
 {
 public:
@@ -31,5 +68,8 @@ private:
     // access the processor object that created it.
     NuclearDistortionAudioProcessor& processor;
 
+    OtherLookAndFeel otherLookAndFeel;
+    Slider driveKnob;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NuclearDistortionAudioProcessorEditor)
 };
