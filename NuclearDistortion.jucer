@@ -3,6 +3,11 @@
 <JUCERPROJECT id="BwJlVj" name="NuclearDistortion" projectType="audioplug"
               jucerVersion="5.4.5" pluginFormats="buildAU,buildVST3" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn">
   <MAINGROUP id="QULCQf" name="NuclearDistortion">
+    <GROUP id="{97418DFA-7822-880B-D017-B490ABD2BD0E}" name="Resources">
+      <FILE id="MWsvyR" name="TexturedBlackBG.jpeg" compile="0" resource="1"
+            file="../../Downloads/TexturedBlackBG.jpeg"/>
+      <FILE id="zIqHZS" name="MetallicBG.jpg" compile="0" resource="1" file="../../Downloads/MetallicBG.jpg"/>
+    </GROUP>
     <GROUP id="{D68EBB27-2771-5D2B-C30F-B36CA27338CD}" name="Source">
       <FILE id="fMhPMY" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>

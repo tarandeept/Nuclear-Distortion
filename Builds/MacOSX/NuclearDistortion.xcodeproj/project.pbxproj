@@ -81,6 +81,10 @@
 			isa = PBXBuildFile;
 			fileRef = 3FB46082D2F1E53653FE5754;
 		};
+		CA26444B65C422AAC9DC4ADB = {
+			isa = PBXBuildFile;
+			fileRef = AB9C16996CC8EBCFEF9E154D;
+		};
 		2F7C57B992E9F434DF7AA893 = {
 			isa = PBXBuildFile;
 			fileRef = F8E29567672670BD249397BB;
@@ -177,6 +181,13 @@
 			name = DiscRecording.framework;
 			path = System/Library/Frameworks/DiscRecording.framework;
 			sourceTree = SDKROOT;
+		};
+		17E6EBF29BD08A76351E0377 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = BinaryData.h;
+			path = ../../JuceLibraryCode/BinaryData.h;
+			sourceTree = "SOURCE_ROOT";
 		};
 		B8AC23F5122BC843433AC49A = {
 			isa = PBXFileReference;
@@ -430,11 +441,25 @@
 			path = ../../Source/PluginProcessor.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		AB9C16996CC8EBCFEF9E154D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = BinaryData.cpp;
+			path = ../../JuceLibraryCode/BinaryData.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
 		AD224F44DD930BF916EF4A04 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = PluginEditor.h;
 			path = ../../Source/PluginEditor.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		B1C52BCC3C422C1B1472B80A = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.jpeg;
+			name = TexturedBlackBG.jpeg;
+			path = ../../../../Downloads/TexturedBlackBG.jpeg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		B3802D3C71A9FA7BABD9CC4D = {
@@ -464,6 +489,13 @@
 			name = OpenGL.framework;
 			path = System/Library/Frameworks/OpenGL.framework;
 			sourceTree = SDKROOT;
+		};
+		C0B09BA60BDBFC78A136CC67 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.jpeg;
+			name = MetallicBG.jpg;
+			path = ../../../../Downloads/MetallicBG.jpg;
+			sourceTree = "SOURCE_ROOT";
 		};
 		C191202D2DC4855BEB38259E = {
 			isa = PBXFileReference;
@@ -570,6 +602,15 @@
 			path = "../../JuceLibraryCode/include_juce_audio_basics.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
+		81C1C04DD09F5DAF46B1E4F6 = {
+			isa = PBXGroup;
+			children = (
+				B1C52BCC3C422C1B1472B80A,
+				C0B09BA60BDBFC78A136CC67,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		B470FC9B27D7AA09F08CA03E = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +625,7 @@
 		214DE5702630A4D6EF3E82B3 = {
 			isa = PBXGroup;
 			children = (
+				81C1C04DD09F5DAF46B1E4F6,
 				B470FC9B27D7AA09F08CA03E,
 			);
 			name = NuclearDistortion;
@@ -614,6 +656,8 @@
 			isa = PBXGroup;
 			children = (
 				DC47290929F0F9EDE37CCC62,
+				AB9C16996CC8EBCFEF9E154D,
+				17E6EBF29BD08A76351E0377,
 				F8E29567672670BD249397BB,
 				5E09CC27EE41C3CF78B1F8A8,
 				7DF8EEC623E61B0B200979DA,
@@ -1290,6 +1334,7 @@
 			files = (
 				6457ECC9E6C39C7320D977CD,
 				DAF59B1E4BEF449F3B620F3D,
+				CA26444B65C422AAC9DC4ADB,
 				2F7C57B992E9F434DF7AA893,
 				8C1EE66C507097A18B34315C,
 				4419AB157F72823ED68A9A6E,
