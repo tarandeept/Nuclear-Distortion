@@ -13,12 +13,14 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 
 //==============================================================================
-/**
-*/
+
+
 class NuclearDistortionAudioProcessor  : public AudioProcessor
 {
 public:
     //==============================================================================
+    float driveAmount;
+    
     NuclearDistortionAudioProcessor();
     ~NuclearDistortionAudioProcessor();
 

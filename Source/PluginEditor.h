@@ -53,7 +53,7 @@ public:
 
 
 
-class NuclearDistortionAudioProcessorEditor  : public AudioProcessorEditor
+class NuclearDistortionAudioProcessorEditor  : public AudioProcessorEditor, private Slider::Listener
 {
 public:
     NuclearDistortionAudioProcessorEditor (NuclearDistortionAudioProcessor&);
@@ -67,11 +67,18 @@ private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     NuclearDistortionAudioProcessor& processor;
-
     OtherLookAndFeel otherLookAndFeel;
+    
+    void sliderValueChanged(Slider* slider) override;
+    
     Slider driveKnob;
+    Label driveLabel;
+    
     Slider mixKnob;
+    Label mixLabel;
+    
     Slider postGainKnob;
+    Label postGainLabel;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NuclearDistortionAudioProcessorEditor)
 };

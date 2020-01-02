@@ -24,26 +24,55 @@ NuclearDistortionAudioProcessorEditor::NuclearDistortionAudioProcessorEditor (Nu
     driveKnob.setRange(0.0, 100.0);
     driveKnob.setValue(0.0);
     driveKnob.setLookAndFeel(&otherLookAndFeel);
+    driveLabel.setText("Drive", dontSendNotification);
+    driveLabel.setFont(Font("Calibri", "Normal", 14));
+    driveLabel.setJustificationType(Justification::centred);
+    driveLabel.attachToComponent(&driveKnob, false);
     addAndMakeVisible(&driveKnob);
+    addAndMakeVisible(&driveLabel);
+    driveKnob.addListener(this);
     
     mixKnob.setSliderStyle(Slider::RotaryVerticalDrag);
     mixKnob.setTextBoxStyle(Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
     mixKnob.setRange(0.0, 100.0);
     mixKnob.setValue(100.0);
     mixKnob.setLookAndFeel(&otherLookAndFeel);
+    mixLabel.setText("Mix", dontSendNotification);
+    mixLabel.setFont(Font("Calibri", "Normal", 14));
+    mixLabel.setJustificationType(Justification::centred);
+    mixLabel.attachToComponent(&mixKnob, false);
     addAndMakeVisible(&mixKnob);
+    addAndMakeVisible(&mixLabel);
     
     postGainKnob.setSliderStyle(Slider::RotaryVerticalDrag);
     postGainKnob.setTextBoxStyle(Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
     postGainKnob.setRange(-1.0, 0.0);
     postGainKnob.setValue(0.0);
     postGainKnob.setLookAndFeel(&otherLookAndFeel);
+    postGainLabel.setText("Post Gain", dontSendNotification);
+    postGainLabel.setFont(Font("Calibri", "Normal", 14));
+    postGainLabel.setJustificationType(Justification::centred);
+    postGainLabel.attachToComponent(&postGainKnob, false);
     addAndMakeVisible(&postGainKnob);
+    addAndMakeVisible(&postGainLabel);
 }
 
-NuclearDistortionAudioProcessorEditor::~NuclearDistortionAudioProcessorEditor()
-{
+
+NuclearDistortionAudioProcessorEditor::~NuclearDistortionAudioProcessorEditor() {}
+
+
+void NuclearDistortionAudioProcessorEditor::sliderValueChanged(Slider* slider) {
+    if (slider == &driveKnob) {
+        processor.driveAmount = driveKnob.getValue();
+    }
+    else if (slider == &mixKnob) {
+        //pass
+    }
+    else {
+        //pass
+    }
 }
+
 
 //==============================================================================
 void NuclearDistortionAudioProcessorEditor::paint (Graphics& g)
