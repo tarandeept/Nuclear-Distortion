@@ -154,7 +154,10 @@ void NuclearDistortionAudioProcessor::processBlock (AudioBuffer<float>& buffer, 
     {
         auto* channelData = buffer.getWritePointer (channel);
 
-        // ..do something to the data...
+        for (int sample = 0; sample < buffer.getNumSamples(); ++sample){
+            float sampleData = buffer.getSample(channel, sample) * driveAmount;
+            channelData[sample] = ((2.f / float_Pi) * atan(sampleData));
+        }
     }
 }
 
