@@ -21,8 +21,8 @@ NuclearDistortionAudioProcessorEditor::NuclearDistortionAudioProcessorEditor (Nu
     
     driveKnob.setSliderStyle(Slider::RotaryVerticalDrag);
     driveKnob.setTextBoxStyle(Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
-    driveKnob.setRange(0.0, 36.0);
-    driveKnob.setValue(0.0);
+    driveKnob.setRange(1.0, 25.0);
+    driveKnob.setValue(1.0);
     driveKnob.setLookAndFeel(&otherLookAndFeel);
     driveLabel.setText("Drive", dontSendNotification);
     driveLabel.setFont(Font("Calibri", "Normal", 14));
