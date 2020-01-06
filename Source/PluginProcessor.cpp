@@ -10,6 +10,7 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include <cmath>
 
 //==============================================================================
 NuclearDistortionAudioProcessor::NuclearDistortionAudioProcessor()
@@ -152,11 +153,14 @@ void NuclearDistortionAudioProcessor::processBlock (AudioBuffer<float>& buffer, 
     // interleaved by keeping the same state.
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
-        auto* channelData = buffer.getWritePointer (channel);
-
-        for (int sample = 0; sample < buffer.getNumSamples(); ++sample){
-            float sampleData = buffer.getSample(channel, sample) * driveAmount;
-            channelData[sample] = ((2.f / float_Pi) * atan(sampleData));
+        auto* channelBuffer = buffer.getWritePointer(channel);
+        const int numSamples = buffer.getNumSamples();
+        
+        for (int sampleIndex = 0; sampleIndex < numSamples; ++sampleIndex) {
+            const float originalSample = buffer.getSample(channel, sampleIndex); // [-1, 1]
+            const float driveGain = Decibels::decibelsToGain(driveAmount);       // [0, 50]
+            float newSample = std::tanh(originalSample * driveGain) * (1.0f / driveGain);
+            channelBuffer[sampleIndex] = newSample;
         }
     }
 }

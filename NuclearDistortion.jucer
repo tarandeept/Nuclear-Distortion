@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="BwJlVj" name="NuclearDistortion" projectType="audioplug"
-              jucerVersion="5.4.5" pluginFormats="buildAU,buildVST3">
+              jucerVersion="5.4.5" pluginFormats="buildAU,buildStandalone,buildVST3">
   <MAINGROUP id="QULCQf" name="NuclearDistortion">
     <GROUP id="{97418DFA-7822-880B-D017-B490ABD2BD0E}" name="Resources">
       <FILE id="MWsvyR" name="TexturedBlackBG.jpeg" compile="0" resource="1"

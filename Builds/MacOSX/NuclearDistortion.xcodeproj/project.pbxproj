@@ -13,6 +13,10 @@
 			isa = PBXBuildFile;
 			fileRef = 0D6D8D6F1CEF0AEBE203F5C4;
 		};
+		A5EA6C2E45F85392BC1EEB1B = {
+			isa = PBXBuildFile;
+			fileRef = 66538ECCA9402813478330FD;
+		};
 		BDC489AA40655A086A12FDD7 = {
 			isa = PBXBuildFile;
 			fileRef = 60696F8F009A8CC95649E8A5;
@@ -109,6 +113,10 @@
 			isa = PBXBuildFile;
 			fileRef = 5825CCD1057C8D078A595090;
 		};
+		07E677986C5ED08F4447A187 = {
+			isa = PBXBuildFile;
+			fileRef = 02B1C67448C8872663156511;
+		};
 		D9A7372DA42BBD73FFB6D4A2 = {
 			isa = PBXBuildFile;
 			fileRef = C44405969BFA0ED7B48CFAA1;
@@ -166,6 +174,13 @@
 			lastKnownFileType = sourcecode.cpp.objcpp;
 			name = "include_juce_data_structures.mm";
 			path = "../../JuceLibraryCode/include_juce_data_structures.mm";
+			sourceTree = "SOURCE_ROOT";
+		};
+		02B1C67448C8872663156511 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = "include_juce_audio_plugin_client_Standalone.cpp";
+			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
 		050A0F985F1CB30E1078073F = {
@@ -350,6 +365,13 @@
 			path = "../../JuceLibraryCode/include_juce_audio_devices.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
+		66538ECCA9402813478330FD = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			path = NuclearDistortion.app;
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
 		60696F8F009A8CC95649E8A5 = {
 			isa = PBXFileReference;
 			explicitFileType = archive.ar;
@@ -426,6 +448,13 @@
 			name = AudioUnit.framework;
 			path = System/Library/Frameworks/AudioUnit.framework;
 			sourceTree = SDKROOT;
+		};
+		A1736A4C8393D1C48DAA9875 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			name = "Info-Standalone_Plugin.plist";
+			path = "Info-Standalone_Plugin.plist";
+			sourceTree = "SOURCE_ROOT";
 		};
 		A4CEC99CC164182FE9DB0D74 = {
 			isa = PBXFileReference;
@@ -664,6 +693,7 @@
 				263AE7873988EA7A546F494B,
 				4E3B185B2B2F3BB70E6B81AA,
 				5825CCD1057C8D078A595090,
+				02B1C67448C8872663156511,
 				C44405969BFA0ED7B48CFAA1,
 				6F589DD8801C6217B95B7838,
 				6ADC7AA1F91F156340C3FEA4,
@@ -687,6 +717,7 @@
 			children = (
 				050A0F985F1CB30E1078073F,
 				C1F98B8E88E9C6D16744454C,
+				A1736A4C8393D1C48DAA9875,
 				BD441AD37BF136C2762BAEAB,
 			);
 			name = Resources;
@@ -717,6 +748,7 @@
 			children = (
 				B8AC23F5122BC843433AC49A,
 				0D6D8D6F1CEF0AEBE203F5C4,
+				66538ECCA9402813478330FD,
 				60696F8F009A8CC95649E8A5,
 			);
 			name = Products;
@@ -959,6 +991,98 @@
 			};
 			name = Release;
 		};
+		4AFD25769BF77D540933C189 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"_DEBUG=1",
+					"DEBUG=1",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
+					"JUCE_APP_VERSION=1.0.0",
+					"JUCE_APP_VERSION_HEX=0x10000",
+					"JucePlugin_Build_VST=0",
+					"JucePlugin_Build_VST3=0",
+					"JucePlugin_Build_AU=0",
+					"JucePlugin_Build_AUv3=0",
+					"JucePlugin_Build_RTAS=0",
+					"JucePlugin_Build_AAX=0",
+					"JucePlugin_Build_Standalone=1",
+					"JucePlugin_Build_Unity=0",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"/Applications/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"../../JuceLibraryCode",
+					"/Applications/JUCE/modules",
+					"/Applications/JUCE/modules/juce_audio_plugin_client",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
+				INFOPLIST_PREPROCESS = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_LDFLAGS = "-lNuclearDistortion";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.NuclearDistortion;
+				PRODUCT_NAME = "NuclearDistortion";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		8DBC12D75024B76397F4D026 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+				DEAD_CODE_STRIPPING = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"_NDEBUG=1",
+					"NDEBUG=1",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
+					"JUCE_APP_VERSION=1.0.0",
+					"JUCE_APP_VERSION_HEX=0x10000",
+					"JucePlugin_Build_VST=0",
+					"JucePlugin_Build_VST3=0",
+					"JucePlugin_Build_AU=0",
+					"JucePlugin_Build_AUv3=0",
+					"JucePlugin_Build_RTAS=0",
+					"JucePlugin_Build_AAX=0",
+					"JucePlugin_Build_Standalone=1",
+					"JucePlugin_Build_Unity=0",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"/Applications/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"../../JuceLibraryCode",
+					"/Applications/JUCE/modules",
+					"/Applications/JUCE/modules/juce_audio_plugin_client",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
+				INFOPLIST_PREPROCESS = NO;
+				LLVM_LTO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_LDFLAGS = "-lNuclearDistortion";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.NuclearDistortion;
+				PRODUCT_NAME = "NuclearDistortion";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
 		FA6E8F241AF50AC96B078BDB = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -983,7 +1107,7 @@
 					"JucePlugin_Build_AUv3=0",
 					"JucePlugin_Build_RTAS=0",
 					"JucePlugin_Build_AAX=0",
-					"JucePlugin_Build_Standalone=0",
+					"JucePlugin_Build_Standalone=1",
 					"JucePlugin_Build_Unity=0",
 					"JUCE_SHARED_CODE=1",
 				);
@@ -1028,7 +1152,7 @@
 					"JucePlugin_Build_AUv3=0",
 					"JucePlugin_Build_RTAS=0",
 					"JucePlugin_Build_AAX=0",
-					"JucePlugin_Build_Standalone=0",
+					"JucePlugin_Build_Standalone=1",
 					"JucePlugin_Build_Unity=0",
 					"JUCE_SHARED_CODE=1",
 				);
@@ -1151,6 +1275,10 @@
 			isa = PBXTargetDependency;
 			target = 38514D23EC269474E2957C24;
 		};
+		1A8AB7012B01FCB9C13BC834 = {
+			isa = PBXTargetDependency;
+			target = B24EE3C3BF946CA2B317B32C;
+		};
 		5C74925212EA15DA1756D3F8 = {
 			isa = PBXTargetDependency;
 			target = CD8DCA99FA640B2B83794013;
@@ -1181,6 +1309,7 @@
 			dependencies = (
 				728A46E51ED80EEE04FAD97D,
 				4A50922EA6D220AD109E8B0F,
+				1A8AB7012B01FCB9C13BC834,
 				5C74925212EA15DA1756D3F8,
 			);
 			name = "NuclearDistortion - All";
@@ -1319,6 +1448,67 @@
 			productReference = 0D6D8D6F1CEF0AEBE203F5C4;
 			productType = "com.apple.product-type.bundle";
 		};
+		FEB29D4236DA741C06DBF3A3 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AFD25769BF77D540933C189,
+				8DBC12D75024B76397F4D026,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3EB5A10C753ABE43EA26F93E = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC16272E2875068F50547D25,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0010AA35B6BC6FE24F622E3 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07E677986C5ED08F4447A187,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A82B3BF3C5C6B9F923E690D = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A3BFE83907EB341AAE86BFB,
+				2C73B96610E60D7E51DABD26,
+				21398AEFD7348FFD38F18A39,
+				F20738375BED44738D70AAA2,
+				CFE499650A6A23EF46A9631B,
+				69A1E7A537ECCE2562C539DA,
+				F0A13449669BDD0AD27B65BD,
+				4082CCEE62246FD01F502199,
+				69F6E64FE3FF36B9C07BD390,
+				AE45234B7CC009C3F8AA56E0,
+				62A91BC05CB2CAF075BD2DE4,
+				F544B3E3BFB2BB121EDD4822,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B24EE3C3BF946CA2B317B32C = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEB29D4236DA741C06DBF3A3;
+			buildPhases = (
+				3EB5A10C753ABE43EA26F93E,
+				B0010AA35B6BC6FE24F622E3,
+				7A82B3BF3C5C6B9F923E690D,
+			);
+			buildRules = ( );
+			dependencies = (
+				5C74925212EA15DA1756D3F8,
+			);
+			name = "NuclearDistortion - Standalone Plugin";
+			productName = NuclearDistortion;
+			productReference = 66538ECCA9402813478330FD;
+			productType = "com.apple.product-type.application";
+		};
 		5D1EDB1176ABF716CDF523B9 = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1369,13 +1559,13 @@
 		65AFD5AC2E2C5F52C2ED28F5 = {
 			isa = PBXProject;
 			buildConfigurationList = 59C53921A58B3238E245FC4B;
-			attributes = { LastUpgradeCheck = 1100; ORGANIZATIONNAME = ""; TargetAttributes = { 37803501FCABB9B2D98096A1 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };822F7CB23BB2A28572C88470 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };38514D23EC269474E2957C24 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };CD8DCA99FA640B2B83794013 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
+			attributes = { LastUpgradeCheck = 1100; ORGANIZATIONNAME = ""; TargetAttributes = { 37803501FCABB9B2D98096A1 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };822F7CB23BB2A28572C88470 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };38514D23EC269474E2957C24 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };B24EE3C3BF946CA2B317B32C = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };CD8DCA99FA640B2B83794013 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
 			mainGroup = D712BE22A9035AA765AF5302;
 			projectDirPath = "";
 			projectRoot = "";
-			targets = (37803501FCABB9B2D98096A1, 822F7CB23BB2A28572C88470, 38514D23EC269474E2957C24, CD8DCA99FA640B2B83794013);
+			targets = (37803501FCABB9B2D98096A1, 822F7CB23BB2A28572C88470, 38514D23EC269474E2957C24, B24EE3C3BF946CA2B317B32C, CD8DCA99FA640B2B83794013);
 			knownRegions = (en, Base);
 		};
 	};

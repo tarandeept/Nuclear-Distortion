@@ -33,7 +33,7 @@ public:
         float ry = centreY - radius;
         float rw = radius * 2.0f;
         float angle = rotaryStartAngle + sliderPos * (rotaryEndAngle - rotaryStartAngle);
-        
+
         g.setColour(Colours::mintcream);
         g.fillEllipse(rx, ry, rw, rw);
         g.setColour(Colours::darkgrey);
