@@ -21,7 +21,7 @@ NuclearDistortionAudioProcessorEditor::NuclearDistortionAudioProcessorEditor (Nu
     
     driveKnob.setSliderStyle(Slider::RotaryVerticalDrag);
     driveKnob.setTextBoxStyle(Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
-    driveKnob.setRange(1.0, 25.0);
+    driveKnob.setRange(1.0, 40.0);
     driveKnob.setValue(1.0);
     driveKnob.setLookAndFeel(&otherLookAndFeel);
     driveLabel.setText("Drive", dontSendNotification);
@@ -47,8 +47,8 @@ NuclearDistortionAudioProcessorEditor::NuclearDistortionAudioProcessorEditor (Nu
     
     postGainKnob.setSliderStyle(Slider::RotaryVerticalDrag);
     postGainKnob.setTextBoxStyle(Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
-    postGainKnob.setRange(-1.0, 0.0);
-    postGainKnob.setValue(0.0);
+    postGainKnob.setRange(0, 100.0);
+    postGainKnob.setValue(100.0);
     postGainKnob.setLookAndFeel(&otherLookAndFeel);
     postGainLabel.setText("Post Gain", dontSendNotification);
     postGainLabel.setFont(Font("Calibri", "Normal", 14));

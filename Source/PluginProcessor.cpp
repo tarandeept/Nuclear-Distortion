@@ -160,6 +160,7 @@ void NuclearDistortionAudioProcessor::processBlock (AudioBuffer<float>& buffer, 
             const float originalSample = buffer.getSample(channel, sampleIndex); // range [-1, 1]
             const float driveGain = Decibels::decibelsToGain(driveAmount * mixAmount / 100.0);
             float newSample = std::tanh(originalSample * driveGain);
+            newSample = newSample * (postGainAmount / 100.0);
             channelBuffer[sampleIndex] = newSample;
         }
     }
