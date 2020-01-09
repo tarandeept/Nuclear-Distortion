@@ -43,6 +43,7 @@ NuclearDistortionAudioProcessorEditor::NuclearDistortionAudioProcessorEditor (Nu
     mixLabel.attachToComponent(&mixKnob, false);
     addAndMakeVisible(&mixKnob);
     addAndMakeVisible(&mixLabel);
+    mixKnob.addListener(this);
     
     postGainKnob.setSliderStyle(Slider::RotaryVerticalDrag);
     postGainKnob.setTextBoxStyle(Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
@@ -55,6 +56,7 @@ NuclearDistortionAudioProcessorEditor::NuclearDistortionAudioProcessorEditor (Nu
     postGainLabel.attachToComponent(&postGainKnob, false);
     addAndMakeVisible(&postGainKnob);
     addAndMakeVisible(&postGainLabel);
+    postGainKnob.addListener(this);
 }
 
 
@@ -66,10 +68,10 @@ void NuclearDistortionAudioProcessorEditor::sliderValueChanged(Slider* slider) {
         processor.driveAmount = driveKnob.getValue();
     }
     else if (slider == &mixKnob) {
-        //pass
+        processor.mixAmount = mixKnob.getValue();
     }
     else {
-        //pass
+        processor.postGainAmount = postGainKnob.getValue();
     }
 }
 

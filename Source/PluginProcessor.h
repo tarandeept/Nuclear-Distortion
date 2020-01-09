@@ -20,6 +20,8 @@ class NuclearDistortionAudioProcessor  : public AudioProcessor
 public:
     //==============================================================================
     float driveAmount;
+    float mixAmount;
+    float postGainAmount;
     
     NuclearDistortionAudioProcessor();
     ~NuclearDistortionAudioProcessor();
